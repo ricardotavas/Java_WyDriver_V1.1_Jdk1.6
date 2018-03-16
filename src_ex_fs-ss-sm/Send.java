@@ -103,7 +103,7 @@ public class Send extends JFrame implements ActionListener {
 		if (SETA.getSelectedItem()=="E") seta='E';
 		
 		if (e.getActionCommand()=="Comando Próximo") {
-			pack = new Packet((byte) 255, (byte) 255, 'S', (byte) 51, (byte) 10, (Integer)BOX.getSelectedItem(), 3, new byte[] { 4,1,1,seta });
+			pack = new Packet((byte) 255, (byte) 255, 'S', (byte) 51, (byte) 10, (Integer)BOX.getSelectedItem(), 4, new byte[] { 4,1,1,seta });
 			sock.Send(IP.getText(), pack.getPacket());
 			if (sock.getStatus()==Const.FRM_OK)
 				STATUS.setText("Comunicação bem sucedida.");
@@ -111,7 +111,7 @@ public class Send extends JFrame implements ActionListener {
 				STATUS.setText("Ocorreu um erro.");			
 		}
 		else if (e.getActionCommand()=="Comando Repete") {
-			pack = new Packet((byte) 255, (byte) 255, 'S', (byte) 51, (byte) 10, (Integer)BOX.getSelectedItem(), 3, new byte[] { 4,1,2,seta });
+			pack = new Packet((byte) 255, (byte) 255, 'S', (byte) 51, (byte) 10, (Integer)BOX.getSelectedItem(), 4, new byte[] { 4,1,2,seta });
 			sock.Send(IP.getText(), pack.getPacket());
 			if (sock.getStatus()==Const.FRM_OK)
 				STATUS.setText("Comunicação bem sucedida.");
